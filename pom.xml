@@ -48,6 +48,13 @@
             <optional>true</optional>
         </dependency>
 
+         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -59,6 +66,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+                 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -69,6 +77,18 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.0.0.M1</version>
+                <configuration>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                        <warSourceDirectory>${project.build.directory}</warSourceDirectory>
+                    </webApp>
+                </configuration>
+            </plugin>
+                 
         </plugins>
     </build>
 
